@@ -4,8 +4,8 @@ namespace Zy\Utils;
 
 /**
  * 进程内数据缓存, 用于全局数据传输, 避免污染 $GLOBALS
- * @date 2021/6/2
- * @author litong
+ * @date 2023/3/2
+ * @author zy
  */
 class ProcessCache
 {
@@ -13,11 +13,11 @@ class ProcessCache
 
     /**
      * 设置缓存数据
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @param string $key
      * @param mixed $val
      * @return bool
-     * @author litong
+     * @author zy
      */
     public static function set($key, $val) {
         self::$data[$key] = $val;
@@ -26,11 +26,11 @@ class ProcessCache
 
     /**
      * 在不存在的时候设置缓存数据
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @param string $key
      * @param mixed $val
      * @return bool
-     * @author litong
+     * @author zy
      */
     public static function setNX($key, $val) {
         return self::exists($key) ? false : self::set($key, $val);
@@ -38,10 +38,10 @@ class ProcessCache
 
     /**
      * 获取缓存数据
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @param $key
      * @return mixed|null
-     * @author litong
+     * @author zy
      */
     public static function get($key) {
         return self::exists($key) ? self::$data[$key] : null;
@@ -49,10 +49,10 @@ class ProcessCache
 
     /**
      * key 是否存在
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @param $key
      * @return bool
-     * @author litong
+     * @author zy
      */
     public static function exists($key) {
         return isset(self::$data[$key]);
@@ -60,10 +60,10 @@ class ProcessCache
 
     /**
      * 删除缓存数据
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @param string $key
      * @return bool
-     * @author litong
+     * @author zy
      */
     public static function rm($key) {
         unset(self::$data[$key]);
@@ -72,9 +72,9 @@ class ProcessCache
 
     /**
      * 获取所有数据
-     * @date 2021/6/2
+     * @date 2023/3/2
      * @return array
-     * @author litong
+     * @author zy
      */
     public static function getAll() {
         return self::$data;
